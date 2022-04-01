@@ -30,42 +30,42 @@ Technically the PI data pin voltage is under the neopixel threshold, which makes
 
 # Installing
 
-* Install your algorand node first, using the [Official algorand installation guide](https://developer.algorand.org/docs/run-a-node/setup/install/).
-* Make sure to install git on your pi through `apt install git`
-* Install nodejs on your pi. There's tons of good guides on how to install it (https://www.golinuxcloud.com/install-nodejs-and-npm-on-raspberry-pi/)
-* Clone this repository to wherever you want to run it from, such as `cd ~/ && git clone <TODO>`
-* Go to the new directory `cd AlgoTracker <TODO>`
-* Run `npm install`
+1. Install your algorand node first, using the [Official algorand installation guide](https://developer.algorand.org/docs/run-a-node/setup/install/).
+2. Make sure to install git on your pi through `apt install git`
+3. Install nodejs on your pi. There's tons of good guides on how to install it (https://www.golinuxcloud.com/install-nodejs-and-npm-on-raspberry-pi/)
+4. Clone this repository to wherever you want to run it from, such as `cd ~/ && git clone <TODO>`
+5. Go to the new directory `cd AlgoTracker <TODO>`
+6. Run `npm install`
 
 At the time of writing, the neopixel library doesn't support pi 4 yet, but it can be fixed with the following steps. This may be fixed in the future. You can try skipping these two steps and if you get errors that your pi isn't supported, go back and do them.
 
 ### Option A
 
-* I wrote a small shell script that automatically modifies the library to support the pi 4.
-* First make it so you can run it `chmod +x updateLibrary.sh`
-* Then run it `./updateLibrary.sh`
+a. I wrote a small shell script that automatically modifies the library to support the pi 4.
+b. First make it so you can run it `chmod +x updateLibrary.sh`
+c. Then run it `./updateLibrary.sh`
 
 ### Option B
 
-* Assuming you're still in the AlgoTracker directory, run `git clone https://github.com/jgarff/rpi_ws281x.git`
-* Then go to the old library source `cd node_modules/@gbkwiatt/node-rpi-ws281x-native/src`
-* Then remove it `rm -rf rpi_ws281x`
-* Then copy the new one `cp -r ../../../../rpi_ws281x ./`
-* Then go back to the library `cd ../`
-* Then recompile `npm recompile`
-* Go back to the project directory `cd ../../../`
+a. Assuming you're still in the AlgoTracker directory, run `git clone https://github.com/jgarff/rpi_ws281x.git`
+b. Then go to the old library source `cd node_modules/@gbkwiatt/node-rpi-ws281x-native/src`
+c. Then remove it `rm -rf rpi_ws281x`
+d. Then copy the new one `cp -r ../../../../rpi_ws281x ./`
+e. Then go back to the library `cd ../`
+f. Then recompile `npm recompile`
+g. Go back to the project directory `cd ../../../`
 
-* If you don't already have your algorand node token, you'll need to look for the algod.token file in your algorand node data directory. It contains your api token.
-* Finally you'll need to edit the index file `nano index.js`
-* Replace the token value on line with your token ex `const token = '23aa641607900ff2754518ce14259bd595508666c972b6a286f6f7892e4fbb90';`
-* You may also need to change the total nr of pixels value and the lanes unless you use the same setup as I did in the video.
-* You can now run it! Note that GPIO requires root permissions. `sudo node index`
-* Note that unless your node is synced with the algorand network, it will output a syncing message.
+7. If you don't already have your algorand node token, you'll need to look for the algod.token file in your algorand node data directory. It contains your api token.
+8. Finally you'll need to edit the index file `nano index.js`
+9. Replace the token value on line with your token ex `const token = '23aa641607900ff2754518ce14259bd595508666c972b6a286f6f7892e4fbb90';`
+10. You may also need to change the total nr of pixels value and the lanes unless you use the same setup as I did in the video.
+11. You can now run it! Note that GPIO requires root permissions. `sudo node index`
+12. Note that unless your node is synced with the algorand network, it will output a syncing message.
 
 
 # Auto starting with systemd
 
-* Create a new service file `sudo nano /etc/systemd/system/algotracker.service`
+1. Create a new service file `sudo nano /etc/systemd/system/algotracker.service`
 	Example content, replace path etc to point towards where you installed it:
 	```
 	[Unit]
@@ -81,7 +81,7 @@ At the time of writing, the neopixel library doesn't support pi 4 yet, but it ca
 	[Install]
 	WantedBy=multi-user.target
 	```
-* Enable the tracker by running `sudo systemctl enable algotracker`
-* Start it with sudo service algotracker start
+2. Enable the tracker by running `sudo systemctl enable algotracker`
+3. Start it with sudo service algotracker start
 
 
