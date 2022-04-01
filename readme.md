@@ -41,19 +41,19 @@ At the time of writing, the neopixel library doesn't support pi 4 yet, but it ca
 
 ### Option A
 
-1. I wrote a small shell script that automatically modifies the library to support the pi 4.
-2. First make it so you can run it `chmod +x updateLibrary.sh`
-3. Then run it `./updateLibrary.sh`
+	1. I wrote a small shell script that automatically modifies the library to support the pi 4.
+	2. First make it so you can run it `chmod +x updateLibrary.sh`
+	3. Then run it `./updateLibrary.sh`
 
 ### Option B
 
-1. Assuming you're still in the AlgoTracker directory, run `git clone https://github.com/jgarff/rpi_ws281x.git`
-2. Then go to the old library source `cd node_modules/@gbkwiatt/node-rpi-ws281x-native/src`
-3. Then remove it `rm -rf rpi_ws281x`
-4. Then copy the new one `cp -r ../../../../rpi_ws281x ./`
-5. Then go back to the library `cd ../`
-6. Then recompile `npm recompile`
-7. Go back to the project directory `cd ../../../`
+	1. Assuming you're still in the AlgoTracker directory, run `git clone https://github.com/jgarff/rpi_ws281x.git`
+	2. Then go to the old library source `cd node_modules/@gbkwiatt/node-rpi-ws281x-native/src`
+	3. Then remove it `rm -rf rpi_ws281x`
+	4. Then copy the new one `cp -r ../../../../rpi_ws281x ./`
+	5. Then go back to the library `cd ../`
+	6. Then recompile `npm recompile`
+	7. Go back to the project directory `cd ../../../`
 
 7. If you don't already have your algorand node token, you'll need to look for the algod.token file in your algorand node data directory. It contains your api token.
 8. Finally you'll need to edit the index file `nano index.js`
