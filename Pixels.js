@@ -58,7 +58,7 @@ class Pixels{
 
 		transactions = transactions.slice(0, this.maxTransactions);
 
-		let dur = 4000 / transactions.length;	// Spit everything out over a 4 sec period 
+		let dur = 4600 / transactions.length;	// Spit everything out over a 4 sec period 
 
 		for( let i = 0; i < transactions.length; ++i ){
 
