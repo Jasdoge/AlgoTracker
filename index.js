@@ -2,7 +2,7 @@ const Pixels = require("./Pixels");
 const Ticker = require("./Ticker");
 
 // Change this to your own token
-const token = '23aa641607900ff2754518ce14259bd595508666c972b6a286f6f7892e4fbb90';
+const token = '3f572a9873b30cb6c546abc4bdd138d8c8940bf7359e3fbf1f3e02783adf5e0d';
 
 // Begin
 const pixels = new Pixels(

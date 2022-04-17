@@ -3,10 +3,7 @@ const algosdk = require('algosdk');
 class Ticker{
 
 	constructor( pixels, conf ){
-
-		if( !conf )
-			conf = CONF_MAINNET;
-
+		
 		this.pixels = pixels;
 		this.catchupTime = 0;
 		this.max_catchup = parseInt(conf.max_catchup) > 0 ? parseInt(conf.max_catchup) : 30;
